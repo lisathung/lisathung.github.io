@@ -1,3 +1,4 @@
+
 /*Profile Division*/
 .profile_box {
 	/*Size and Position*/
@@ -30,6 +31,10 @@
 .box_header {
 	font-size: 16pt;
 	font-weight: bold;
+	margin-bottom: 15px;
+	
+	/*Text Formatting*/
+	text-align: center;
 }
 
 .main_box {
@@ -53,6 +58,5 @@
 	box-shadow: 0 5px 5px 1px gray;
 
 	/*Text Formatting*/
-	text-align: center;
 	overflow: hidden;
 }
