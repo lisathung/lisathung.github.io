@@ -1,8 +1,7 @@
 ---
-layout: default
-title: Blog
+layout: baseLayout
+title: Blog Lisa
 ---
-
 <h1>latest posts</h1>
 
 <ul>
