@@ -1,0 +1,6 @@
+# Stores all the links on the website
+- name: Home
+  link: /
+
+- name: About
+  link: /about.html
