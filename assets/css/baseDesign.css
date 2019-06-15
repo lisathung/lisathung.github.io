@@ -1,0 +1,61 @@
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+
+a:hover {
+	color: blue;
+}
+
+body {
+	/*Text Formatting*/	
+	font-family: sans-serif;
+}
+
+/*NAVBAR*/
+.navbar {
+	/*Size and Positon*/
+	width: 400px;
+	margin: 50px auto 25px auto;
+	display: flex;
+	justify-content: center;
+
+	/*Text Formatting*/
+	font-size: 18pt;
+}
+
+.navbar_item{
+	/*Size and Positon*/
+	width: auto;
+	height: 25px;
+	margin: 0 15px 0 15px;
+}
+
+/*Main Box Division*/
+.main_box {
+	/*Size and Position*/
+	margin:auto;
+	display: block;
+	text-align: center;
+}
+
+/*blog posts*/
+.header {
+	margin: auto;
+	text-align: center;
+}
+
+.blog {
+	margin: auto;
+	margin-left: 10%;
+	margin-right: 10%;
+	display: flex;
+	flex-direction: column;
+}
+
+.blog_item {
+}
