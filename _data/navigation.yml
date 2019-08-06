@@ -1,6 +1,6 @@
 # Stores all the links on the website
 - name: Home
-  link: /blog.md
+  link: /
 
 - name: About
   link: /about.html
