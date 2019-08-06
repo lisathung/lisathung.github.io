@@ -2,15 +2,13 @@
 layout: baseLayout
 title: Lisa page
 ---
-<div class="main_box">
-	<div class="blog">
-		{% for post in site.posts %}
-		<a href="{{ post.url }}">
-			<div class="blog_item">
-					<h2 class="header">{{ post.title }}</h2>
-					<p>{{ post.excerpt }}</p>
-			</div>
-		</a>
-		{% endfor %}
-	</div>
+<div class="blog">
+	{% for post in site.posts %}
+	<a href="{{ post.url }}">
+		<div class="blog_item">
+				<h2 class="header">{{ post.title }}</h2>
+				<p>{{ post.excerpt }}</p>
+		</div>
+	</a>
+	{% endfor %}
 </div>

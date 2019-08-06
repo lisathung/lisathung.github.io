@@ -51,15 +51,15 @@ body {
 }
 
 .blog {
-	margin: 75px 10% 0 10%;
-	display: block;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .blog_item {
 	/*Dimensions*/
-	display: block;
-	float: left;
-	margin: 0 2% 0 2%; 
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0px 25px;
 	border-radius: 40px;
 	height: 150px;
 	width: 250px;
