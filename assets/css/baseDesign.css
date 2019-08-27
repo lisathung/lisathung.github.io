@@ -1,3 +1,7 @@
+body, html { 
+	height: 100%; 
+}
+
 a {
 	text-decoration: none;
 	color: white;
@@ -13,7 +17,9 @@ a:hover {
 }
 
 .line{
-	border: 0.1rem solid #808080;
+	float: left;
+	border-left:0.1rem solid white;
+	height: 90%;
 }
 
 body {
@@ -37,6 +43,7 @@ body {
 
 	/*Text Formatting*/
 	font-size: 2rem;
+	text-align: center;
 
 }
 
