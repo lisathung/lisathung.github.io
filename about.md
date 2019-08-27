@@ -2,6 +2,6 @@
 layout: baseLayout
 title: Lisa About
 ---
-<div class="main_box">
+<div class="blogpost">
 	this page is about yours truly
 </div>
