@@ -1,19 +1,28 @@
 a {
 	text-decoration: none;
-	color: black;
+	color: white
 }
 
 a:visited {
-	color: black;
+	color: white;
 }
 
 a:hover {
-	color: blue;
+	color:gray;
+}
+
+.line{
+	border: 0.1rem solid #808080;
 }
 
 body {
 	/*Text Formatting*/	
 	font-family: sans-serif;
+	color: white;
+	font-size: 1.2rem;
+
+	/* colour and design */
+	background-color: black;
 }
 
 /*NAVBAR*/
@@ -25,7 +34,8 @@ body {
 	justify-content: center;
 
 	/*Text Formatting*/
-	font-size: 18pt;
+	font-size: 2rem;
+
 }
 
 .navbar_item{
@@ -35,23 +45,9 @@ body {
 	margin: 0 15px 0 15px;
 }
 
-/*Main Box Division*/
-.main_box {
-	/*Size and Position*/
-	margin:auto;
-	margin-top: 50px;
-	display: block;
-	text-align: center;
-}
-
-/*blog posts*/
-.header {
-	margin: auto;
-	text-align: center;
-}
-
+/*blog post list*/
 .blog {
-	margin: 0 auto;
+	margin: 1rem auto;
 	text-align: center;
 }
 
@@ -59,14 +55,23 @@ body {
 	/*Dimensions*/
 	display: inline-block;
 	vertical-align: middle;
-	margin: 0px 25px;
-	border-radius: 40px;
+	margin: 0px 1rem;
+	border-radius: 10px;
 	height: 150px;
-	width: 250px;
-	box-shadow: 0 5px 5px 1px gray;
-	padding: 25px;
+	width: 300px;
+	padding: 1rem;
 
 	/*text*/
 	text-align: justify;
-	
+	text-overflow: ellipsis;
+
+	/* colour */
+	box-shadow: 0px 0px 1px 1px whitesmoke;
+	background-color: #151515;
 }
+
+.header {
+	margin: auto;
+	text-align: center;
+}
+

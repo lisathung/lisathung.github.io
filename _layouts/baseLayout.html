@@ -1,13 +1,18 @@
 <!-- default template for the site -->
 <!doctype html>
 <html>
+  
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/baseDesign.css">
+    <link rel="stylesheet" href="/assets/css/post.css">
   </head>
+
   <body>
-  	{% include navigation.html %}
+    {% include navigation.html %}
+    <hr class="line">
     {{ content }}
   </body>
+
 </html>
