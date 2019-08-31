@@ -1,8 +1,25 @@
 
 /*Home page*/
+
+blockquote{
+	text-align: center;
+	font-style: italic;
+}
 .blogpost {
 	margin-top: 2rem;
 	margin-left: 10%;
 	text-align: left;
 	padding: 0 3rem;
 }
+
+.image{
+	max-height: 40rem;
+	padding: 1rem;
+}
+
+.gallery{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
