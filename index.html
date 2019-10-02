@@ -6,8 +6,8 @@ title: Lisa page
 	{% for post in site.posts %}
 	<a href="{{ post.url }}">
 		<div class="blog_item">
-				<h3 class="header">{{ post.title }}</h3>
-				<p>{{ post.excerpt }}</p>
+				<h2>{{ post.title }}</h2>
+				{{ post.excerpt }}
 		</div>
 	</a>
 	{% endfor %}

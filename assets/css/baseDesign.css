@@ -1,13 +1,11 @@
 body, html { 	
 	/*Text Formatting*/	
 	font-family: sans-serif;
-	font-size: 14pt;
+	font-size: 12pt;
 	color: gray;
 
 	/* colour and design */
 	background-color: black;
-
-	
 }
 
 a {
@@ -24,64 +22,43 @@ a:hover {
 	color:white;
 }
 
-.line{
-	float: left;
-	border-left:0.1rem solid white;
-	height: 100%;
-}
-
 /*NAVBAR*/
 .navbar {
 	/*Size and Positon*/
 	display: flex;
-	float: left;
 	flex-direction: column;
 	justify-content: center;
-	width: 10%;
 
 	/*Text Formatting*/
-	font-size: 2rem;
+	font-size: 1.5rem;
 	text-align: center;
-
 }
 
 .navbar_item{
 	/*Size and Positon*/
-	display: block;
+	padding-inline: 0.5rem;
 	width: auto;
-	height: 1rem;
 	margin-bottom: 3rem;
 }
 
 /*blog post list*/
 .blog {
-	font-size: 1.1rem;
 	margin-top: 2rem;
-	margin-left: 10%;
-	text-align: center;
+	margin: auto;
+	width: 700px;
+	text-align: left;
 }
 
 .blog_item {
 	/*Dimensions*/
-	display: inline-block;
-	vertical-align: middle;
-	margin: 1rem;
-	border-radius: 10px;
-	height: 150px;
-	width: 300px;
-	padding: 1rem;
+	display: flex;
+	flex-direction: column;
 	overflow: hidden;
+	margin-top: 0.5rem;
+	border-bottom: 1px solid whitesmoke;
 
 	/*text*/
 	text-align: justify;
 	text-overflow: ellipsis;
 
-	/* colour */
-	box-shadow: 0px 0px 1px 1px whitesmoke;
 }
-
-.header {
-	margin: auto;
-	text-align: center;
-}
-

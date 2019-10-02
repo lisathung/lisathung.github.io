@@ -8,7 +8,7 @@ title: Blog Lisa
 		<a href="{{ post.url }}">
 			<div class="blog_item">
 					<h2 class="header">{{ post.title }}</h2>
-					<p>{{ post.excerpt }}</p>
+					{{ post.excerpt | remove: '<p>' | remove: '</p>' }}
 			</div>
 		</a>
 		{% endfor %}
