@@ -10,14 +10,34 @@ d3.csv(csv_url).then(function(data){
         .text(d.volume+ ':' +d.name);
     })
 });
+
+// add function on option change
+var vol_num = 1;
+var index = 'vol'+vol_num;
+d3.select('#menuOptions').attr('onChange','updateOptions()');
+
+// define function
+function updateOptions(){
+    vol_num = document.getElementById('menuOptions').value;
+    d3.select('svg').remove();
+    index = 'vol'+vol_num;
+    console.log(index);
+    JSONpromise.then(updateNetwork).catch(function(error){console.log(error)});    
+}
+
 // read data and simulate network
 var json_url = '/assets/data/data.json';
 var width = 500, height = 500
 
-d3.json(json_url).then(function(data){    
-
-    var nodes = data.vol1.nodes;
-    var links = data.vol1.links;
+var JSONpromise = d3.json(json_url)
+JSONpromise.then(updateNetwork).catch(function(error){console.log(error)});
+    
+function updateNetwork(data){    
+    console.log(index);
+    console.log(data);
+    
+    var nodes = data['vol'+vol_num].nodes;
+    var links = data['vol'+vol_num].links;
 
     console.log(nodes);
     console.log(links);
@@ -51,21 +71,21 @@ d3.json(json_url).then(function(data){
         v.exit().remove()
     }
 
-    function updateNodes(){
-        // select the nodes
-        var u = svg.selectAll('.node')
-            .data(nodes)
-        // enter any new nodes 
-        u.enter()
-        .append('circle')
-        .merge(u)
-        .attr('r', 50)
-        .attr('class','node')
-        .attr('cx', function(d) {return d.x})
-        .attr('cy', function(d) {return d.y})
-        .attr('fill',function(d){return 'url(#' + d.id + ')';})
-        u.exit().remove()
-    }
+    // function updateNodes(){
+    //     // select the nodes
+    //     var u = svg.selectAll('.node')
+    //         .data(nodes)
+    //     // enter any new nodes 
+    //     u.enter()
+    //     .append('circle')
+    //     .merge(u)
+    //     .attr('r', 50)
+    //     .attr('class','node')
+    //     .attr('cx', function(d) {return d.x})
+    //     .attr('cy', function(d) {return d.y})
+    //     .attr('fill',function(d){return 'url(#' + d.id + ')';})
+    //     u.exit().remove()
+    // }
 
     function updateImages(){
         // select the nodes
@@ -77,7 +97,7 @@ d3.json(json_url).then(function(data){
         // .text(function(d){return d.name})
         .merge(u)
         .attr('class','nodeImage')
-        .attr('clip-path','url(.clipPath)')
+        .attr('id',function(d){return d.id})
         .attr('href',function(d){return d.link;})
         .attr('x', function(d) {return d.x - 20})
         .attr('y', function(d) {return d.y - 20})
@@ -91,4 +111,4 @@ d3.json(json_url).then(function(data){
         // updateNodes();
     }
 
-}).catch(function(error){console.log(error);});
+}
