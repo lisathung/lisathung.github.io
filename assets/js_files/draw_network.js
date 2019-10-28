@@ -1,16 +1,28 @@
-var url = '/assets/data/data.json';
+
+// read volume list and create option menu
+var csv_url = '/assets/data/volume_list.csv';
+d3.csv(csv_url).then(function(data){
+    data.forEach(function(d){
+        // add an option for each data item
+        menu = d3.select('#menuOptions')
+        menu.append('option')
+        .attr('value',d.volume)
+        .text(d.volume+ ':' +d.name);
+    })
+});
+// read data and simulate network
+var json_url = '/assets/data/data.json';
 var width = 500, height = 500
 
-// read data
-var x = d3.json(url).then(function(data){    
+d3.json(json_url).then(function(data){    
 
-    var nodes = data.nodes;
-    var links = data.links;
+    var nodes = data.vol1.nodes;
+    var links = data.vol1.links;
 
     console.log(nodes);
     console.log(links);
 
-    var svg = d3.select('#test1')
+    var svg = d3.select('#network')
         .append('svg')
         .attr('width',width)
         .attr('height',height);
@@ -79,4 +91,4 @@ var x = d3.json(url).then(function(data){
         // updateNodes();
     }
 
-    }).catch(function(error){console.log(error);});
+}).catch(function(error){console.log(error);});
