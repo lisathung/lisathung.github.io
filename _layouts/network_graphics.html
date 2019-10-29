@@ -3,23 +3,22 @@ layout: baseLayout
 ---
 <link rel="stylesheet" href="/assets/css/network_graphics.css">
 
-<!-- 
-<div class="blog">
-    <h2>{{ page.title }}</h2>
-    {{ page.date | date_to_string }} - {{ page.author}}
-    {{content}}
-</div> -->    
 <body>
-    <div id="dropdownMenu">
-        <select type='dropdownMenu' id='menuOptions'>
-            
-        </select>
-    </div>
-    <div id='network'></div>
-    
-    <img src='/assets/images/face.png' class='nodeImage'>
+    <div class='container'>
+        <div class="graphics" id='graphics'>
+            <div id="dropdownMenu">
+                <select type='dropdownMenu' id='menuOptions'></select>
+            </div>
+        </div> 
 
-    <footer>
+        <div class="blog">
+            <h2>{{ page.title }}</h2>
+            {{ page.date | date_to_string }} - {{ page.author}}
+            {{content}}
+        </div>
+    </div>
+    
+<footer>
     <script src="/assets/d3/d3.js"></script>
     <script src='/assets/js_files/draw_network.js'></script>        
 </footer>

@@ -27,9 +27,8 @@ function updateOptions(){
 
 // read data and simulate network
 var json_url = '/assets/data/data.json';
-var width = 500, height = 500
 
-var JSONpromise = d3.json(json_url)
+var JSONpromise = d3.json(json_url);
 JSONpromise.then(updateNetwork).catch(function(error){console.log(error)});
     
 function updateNetwork(data){    
@@ -42,16 +41,22 @@ function updateNetwork(data){
     console.log(nodes);
     console.log(links);
 
-    var svg = d3.select('#network')
+    // getting dimesnions
+    var width = d3.select('.blog').style('width'), height = d3.select('.blog').style('height')
+    width = width.substring(0,width.length-2), height = height.substring(0,height.length-2)
+
+    var svg = d3.select('#graphics')
         .append('svg')
         .attr('width',width)
-        .attr('height',height);
+        .attr('height',height)
+        .attr('overflow','"scroll"');
 
+    console.log(width,' is ',height)
     // overall layout
     var simulation = d3.forceSimulation(nodes)
-    .force('charge', d3.forceManyBody().strength(-80))
+    .force('charge', d3.forceManyBody().strength(-90))
     .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('link',d3.forceLink().links(links).distance(200))
+    .force('link',d3.forceLink().links(links).distance(150))
     .on('tick', ticked);
 
     function updateLinks(){
