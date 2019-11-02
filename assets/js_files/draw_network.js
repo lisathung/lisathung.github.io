@@ -28,9 +28,11 @@ function updateOptions(){
 // read data and simulate network
 var json_url = '/assets/data/data.json';
 
+// promise object allows us to update the graph
 var JSONpromise = d3.json(json_url);
 JSONpromise.then(updateNetwork).catch(function(error){console.log(error)});
     
+// function for updating graph
 function updateNetwork(data){    
     console.log(index);
     console.log(data);
