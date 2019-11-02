@@ -3,18 +3,18 @@
     "nodes": [
       {
         "id": 1,
-        "name": "A",
-        "link":"/assets/images/face.png"
+        "name": "fuuka",
+        "link":"/assets/images/fuuka.png"
       },
       {
         "id": 2,
-        "name": "B",
-        "link":"/assets/images/face.png"
+        "name": "yamato",
+        "link":"/assets/images/yamato.png"
       },
       {
         "id": 3,
         "name": "C",
-        "link":"/assets/images/face.png"
+        "link":"/assets/images/fuuka.png"
       },
       {
         "id": 4,

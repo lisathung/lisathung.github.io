@@ -107,7 +107,7 @@ function updateNetwork(data){
         .attr('id',function(d){return d.id})
         .attr('href',function(d){return d.link;})
         .attr('x', function(d) {return d.x - 20})
-        .attr('y', function(d) {return d.y - 20})
+        .attr('y', function(d) {return d.y -25})
 
         u.exit().remove()
     }
