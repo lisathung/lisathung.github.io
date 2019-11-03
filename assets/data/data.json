@@ -2,92 +2,41 @@
   "vol1":{
     "nodes": [
       {
-        "id": 1,
+        "id": 0,
         "name": "fuuka",
         "link":"/assets/images/fuuka.png"
       },
       {
-        "id": 2,
+        "id": 1,
         "name": "yamato",
         "link":"/assets/images/yamato.png"
       },
       {
-        "id": 3,
+        "id": 2,
         "name": "C",
-        "link":"/assets/images/fuuka.png"
+        "link":""
+      },
+      {
+        "id": 3,
+        "name": "D",
+        "link":""
       },
       {
         "id": 4,
-        "name": "D",
-        "link":"/assets/images/face.png"
+        "name": "E",
+        "link":""
       },
       {
         "id": 5,
-        "name": "E",
-        "link":"/assets/images/face.png"
-      },
-      {
-        "id": 6,
         "name": "F",
-        "link":"/assets/images/face.png"
-      },
-      {
-        "id": 7,
-        "name": "G",
-        "link":"/assets/images/face.png"
-      },
-      {
-        "id": 8,
-        "name": "H",
-        "link":"/assets/images/face.png"
-      },
-      {
-        "id": 9,
-        "name": "I",
-        "link":"/assets/images/face.png"
-      },
-      {
-        "id": 10,
-        "name": "J",
-        "link":"/assets/images/face.png"
+        "link":""
       }
     ],
     "links": [
       {
         "source": 0,
-        "target": 1
-      },
-      {
-        "source": 0,
-        "target": 2
-      },
-      {
-        "source": 0,
-        "target": 3
-      },
-      {
-        "source": 0,
-        "target": 4
-      },
-      {
-        "source": 0,
-        "target": 5
-      },
-      {
-        "source": 0,
-        "target": 6
-      },
-      {
-        "source": 0,
-        "target": 7
-      },
-      {
-        "source": 0,
-        "target": 8
-      },
-      {
-        "source": 0,
-        "target": 9
+        "target": 1,
+        "relation": "interested"
       }
     ]
   },

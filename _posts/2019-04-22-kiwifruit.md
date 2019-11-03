@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: network_graphics_sigma
 author: ted
 title: JJJJJJ
 ---

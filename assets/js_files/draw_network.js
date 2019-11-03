@@ -53,31 +53,40 @@ function updateNetwork(data){
         .attr('height',height)
         .attr('overflow','"scroll"');
 
-    console.log(width,' is ',height)
     // overall layout
     var simulation = d3.forceSimulation(nodes)
-    .force('charge', d3.forceManyBody().strength(-90))
+    .force('charge', d3.forceManyBody().strength(-50))
     .force('center', d3.forceCenter(width / 2, height / 2))
     .force('link',d3.forceLink().links(links).distance(150))
     .on('tick', ticked);
 
-    function updateLinks(){
-        // select the links
-        var v = svg.selectAll('line')
-            .data(links)
-        
-        // apply the css styling to every link
-        v.enter()
+    // select the links
+    var edges = svg.selectAll('line')
+        .data(links)
+        .enter()
         .append('line')
-        .merge(v)
-        .attr('x1',function(d){return d.source.x})
-        .attr('y1',function(d){return d.source.y})
-        .attr('x2',function(d){return d.target.x})
-        .attr('y2',function(d){return d.target.y})
 
-        v.exit().remove()
-    }
-
+    // select the nodes
+    var imageNodes= svg.selectAll('.nodeImage')
+        .data(nodes)
+        // apply the css styling to every node
+        .enter()
+        .append('image')
+        .attr('class','nodeImage')
+        .attr('id',function(d){return d.id;})
+        .attr('href',function(d){return d.link;})
+    
+    var edgeText = svg.selectAll('.edgeText')
+        .data(links)
+        .enter()
+        .append('text')
+        .attr('class','edgeText')
+        .attr("text-anchor", "middle")
+        .text(function(d){return d.relation})
+        // .attr('x',function(d){return (d.source.x+d.target.x)/2})
+        // .attr('y',function(d){return (d.target.x+d.target.y)/2})
+        
+    
     // function updateNodes(){
     //     // select the nodes
     //     var u = svg.selectAll('.node')
@@ -94,28 +103,23 @@ function updateNetwork(data){
     //     u.exit().remove()
     // }
 
-    function updateImages(){
-        // select the nodes
-        var u = svg.selectAll('.nodeImage')
-            .data(nodes)
-        // apply the css styling to every node
-        u.enter()
-        .append('image')
-        // .text(function(d){return d.name})
-        .merge(u)
-        .attr('class','nodeImage')
-        .attr('id',function(d){return d.id})
-        .attr('href',function(d){return d.link;})
-        .attr('x', function(d) {return d.x - 20})
-        .attr('y', function(d) {return d.y -25})
-
-        u.exit().remove()
-    }
     // run this function at every tick of the simulation
     function ticked() {
-        updateLinks();
-        updateImages();
-        // updateNodes();
+
+        edges
+        .attr('x1',function(d){return d.source.x})
+        .attr('y1',function(d){return d.source.y})
+        .attr('x2',function(d){return d.target.x})
+        .attr('y2',function(d){return d.target.y});
+
+        imageNodes
+        .attr('x', function(d) {return d.x - 25})
+        .attr('y', function(d) {return d.y -25});
+
+        edgeText
+        .attr('x',function(d){return (d.source.x+d.target.x)/2})
+        .attr('y',function(d){return (d.source.y+d.target.y)/2})
+
     }
 
 }
