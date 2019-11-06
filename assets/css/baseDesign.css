@@ -40,24 +40,3 @@ a:hover {
 	width: auto;
 	margin-bottom: 3rem;
 }
-
-/*blog post list*/
-.blog {
-	margin-top: 2rem;
-	margin: auto;
-	text-align: left;
-}
-
-.blog_item {
-	/*Dimensions*/
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	margin-top: 0.5rem;
-	border-bottom: 1px solid whitesmoke;
-
-	/*text*/
-	text-align: justify;
-	text-overflow: ellipsis;
-
-}

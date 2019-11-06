@@ -44,8 +44,19 @@ function updateNetwork(data){
     console.log(links);
 
     // getting dimesnions
-    var width = d3.select('.blog').style('width'), height = d3.select('.blog').style('height')
+    var width = d3.select('html').style('width'), height = d3.select('html').style('height')
     width = width.substring(0,width.length-2), height = height.substring(0,height.length-2)
+
+    // we need our graphics div to take up only 40% of the screen
+
+    console.log(width)
+    console.log(height)
+
+    width = width/4
+    height = height/3
+
+    console.log(width)
+    console.log(height)
 
     var svg = d3.select('#graphics')
         .append('svg')
@@ -76,6 +87,7 @@ function updateNetwork(data){
         .attr('id',function(d){return d.id;})
         .attr('href',function(d){return d.link;})
     
+    // edge text
     var edgeText = svg.selectAll('.edgeText')
         .data(links)
         .enter()

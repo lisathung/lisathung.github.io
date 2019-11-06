@@ -12,24 +12,9 @@
         "link":"/assets/images/yamato.png"
       },
       {
-        "id": 2,
-        "name": "C",
-        "link":""
-      },
-      {
-        "id": 3,
-        "name": "D",
-        "link":""
-      },
-      {
-        "id": 4,
-        "name": "E",
-        "link":""
-      },
-      {
-        "id": 5,
-        "name": "F",
-        "link":""
+        "id": 1,
+        "name": "yamato",
+        "link":"/assets/images/yamato.png"
       }
     ],
     "links": [

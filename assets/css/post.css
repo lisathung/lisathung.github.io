@@ -4,11 +4,11 @@ blockquote{
 	text-align: center;
 	font-style: italic;
 }
+
 .blogpost {
 	margin-top: 2rem;
-	margin-left: 10%;
+	margin : auto;
 	text-align: left;
-	padding: 0 3rem;
 }
 
 .image{
