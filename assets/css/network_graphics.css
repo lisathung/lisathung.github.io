@@ -11,6 +11,8 @@ line{
 
 .edgeText{
     fill: red;
+    transform-origin: center;
+    font-size: 0.9rem;
 }
 
 body,html{

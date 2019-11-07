@@ -131,7 +131,17 @@ function updateNetwork(data){
         edgeText
         .attr('x',function(d){return (d.source.x+d.target.x)/2})
         .attr('y',function(d){return (d.source.y+d.target.y)/2})
-
+        .attr('transform' ,function(d,i){
+            // rotate edge text
+            var dx = Math.abs(d.source.x - d.target.x)
+            var dy = Math.abs(d.source.y - d.target.y)
+            var angle = Math.atan(dy/dx) * (180/Math.PI)
+            return 'rotate(' + Math.abs(angle-360) + ')';
+        });
     }
-
 }
+
+var ratio = 0.6887493055474856
+console.log('ratio = '+ratio)
+console.log('radian = '+Math.atan(ratio))
+console.log('degree = '+(Math.atan(ratio) * 180/Math.PI))
