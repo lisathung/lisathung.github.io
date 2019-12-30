@@ -6,6 +6,10 @@ body, html {
 
 	/* colour and design */
 	background-color: black;
+
+	/* margins */
+	margin-left: 10rem;
+	margin-right: 10rem;
 }
 
 a {
@@ -22,6 +26,20 @@ a:hover {
 	color:white;
 }
 
+.blog_preview{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+/* blog excerpts */
+.blog_image{ margin-right: 2rem }
+.blog_text{ margin-right: 2rem }
+.blog_image img{
+	width: 25rem;
+	height: 25rem;
+}
+
 /*NAVBAR*/
 .navbar {
 	/*Size and Positon*/
@@ -32,11 +50,16 @@ a:hover {
 	/*Text Formatting*/
 	font-size: 1.5rem;
 	text-align: center;
+
+	/* margins */
+	margin-bottom: 2rem;
 }
 
 .navbar_item{
 	/*Size and Positon*/
-	padding-inline: 0.5rem;
 	width: auto;
-	margin-bottom: 3rem;
+
+	/* margins */
+	margin-right: 1rem;
+	margin-left: 1rem;
 }

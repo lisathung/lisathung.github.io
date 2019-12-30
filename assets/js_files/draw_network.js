@@ -48,11 +48,10 @@ function updateNetwork(data){
     width = width.substring(0,width.length-2), height = height.substring(0,height.length-2)
 
     // we need our graphics div to take up only 40% of the screen
-
     console.log(width)
     console.log(height)
 
-    width = width/4
+    width = width/3
     height = height/3
 
     console.log(width)
