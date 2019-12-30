@@ -11,14 +11,7 @@ blockquote{
 	text-align: left;
 }
 
-.image{
-	max-height: 40rem;
-	padding: 1rem;
+.gallery img {
+	max-width: 250px;
+	max-height: 150px;
 }
-
-.gallery{
-	display: flex;
-	justify-content: center;
-	flex-direction: row;
-}
-
