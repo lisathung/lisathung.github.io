@@ -6,10 +6,10 @@ title: Lisa page
 	{% for post in site.posts %}
 	<a href="{{ post.url }}">
 		<div class='blog_preview'>
-			<div class="blog_image">
+			<div class='preview_item' id="blog_image">
 				<img src="{{ post.image }}">
 			</div>
-			<div class="blog_text">
+			<div class='preview_item' id="blog_text">
 					<h2>{{ post.title }}</h2>
 					{{ post.excerpt }}
 			</div>
