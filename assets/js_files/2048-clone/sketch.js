@@ -2,12 +2,15 @@ var grid;
 var cell_size;
 var no_of_cells;
 var board_size;
+var score;
 
 function setup() {
   // initialize variables
   no_of_cells = 4;
   board_size = 500;
+  score = 0;
 
+  noLoop();
   // initialize canvas area
   var canvas = createCanvas(board_size, board_size);
 
@@ -21,10 +24,11 @@ function setup() {
   grid = make2DArray(no_of_cells);
   
   // place 2 numbers randomly on board
-  console.table(grid);
+  // console.table(grid);
   addNumber(grid);
   addNumber(grid);
-  console.table(grid);
+  // console.table(grid);
+  updateCanvas();
 }
 
 function make2DArray(size) {
@@ -64,58 +68,133 @@ function addNumber(grid){
         continue;
     }
   }
+  return grid;
 }
 
-function extract_numbers(row){
-  // input : 1D row of values
-  // function for extracting all non zero elements from row
-  var ans = new Array(0);
-  for (var i=0;i<row.length;i++){
-    if (row[i] != 0)
-      ans.push(row[i]);
+function isNonZero(value){
+  // function for checking if value is non zero
+  return value > 0;
+}
+
+function extractRow(grid,row_num){
+  // function for extracting row
+  var row =[];
+  for(var i=0;i<grid.length;i++){
+    row.push(grid[i][row_num]);
+    grid[i][row_num] = 0;
   }
-  return ans;
+  return row;
 }
 
-function slide(grid){
-  // input : 3D grid of values
-  // function for moving numbers north(up)
-  // rows are extracted column-wise
-  var empty_cells;
-  var filled_cells;
-  for (var i=0;i<grid.length;i++){
-    filled_cells = extract_numbers(grid[i]);
-    empty_cells = Array(grid.length - filled_cells.length).fill(0);
-    grid[i] = filled_cells.concat(empty_cells);
+function updateRow(grid,row_num,new_row){
+  for(var i=0;i<grid.length;i++){
+    grid[i][row_num] = new_row[i];
   }
   return grid;
 }
 
-function combine(grid){
-  // adds similar numbers
+function slideV(grid,direction){
+  // input : 3D grid of values
+  // function for moving numbers north(up) and south(down)
+  // rows are extracted column-wise
+  var empty_cells;
+  var filled_cells;
   for (var i=0;i<grid.length;i++){
-    console.log('working on=',grid[i]);
-    console.log('i=',i);
+    filled_cells = grid[i].filter(isNonZero);
+    empty_cells = Array(grid.length - filled_cells.length).fill(0);
+
+    if (direction=='up'){
+      grid[i] = filled_cells.concat(empty_cells);
+    }else if(direction == 'down'){
+      grid[i] = empty_cells.concat(filled_cells);
+    }else{
+      console.log('Innapropriate Input Direction');
+    }
+  }
+  return grid;
+}
+
+function slideH(grid,direction){
+  // input : 3D grid of values
+  // function for moving numbers east(right) and west(left)
+  // rows are extracted column-wise
+  var empty_cells;
+  var filled_cells;
+  var new_row;
+  for (var i=0;i<grid.length;i++){
+    row = extractRow(grid,i);
+    filled_cells = row.filter(isNonZero);
+    empty_cells = Array(grid.length - filled_cells.length).fill(0);
+
+    if (direction == 'left'){
+      new_row = filled_cells.concat(empty_cells);
+      updateRow(grid,i,new_row);
+    }else if(direction =='right'){
+      new_row = empty_cells.concat(filled_cells);
+      updateRow(grid,i,new_row);
+    }else{
+      console.log('Innapropriate Input Direction');
+    }
+  }
+  return grid;
+}
+
+function combineV(grid){
+  // adds same numbers together
+  for (var i=0;i<grid.length;i++){
     for (var j=0;j+1<grid[i].length;j++){
-      if (grid[i][j] == grid[i][j+1]){
+      if (grid[i][j] == grid[i][j+1] ){
         grid[i][j] += grid[i][j+1];
         grid[i][j+1] = 0;
+        score += grid[i][j];
       }
     }
   }
   return grid
 }
-function keyPressed(){
-  if (key == ' '){
-    slide(grid);
-    combine(grid);
-    slide(grid);
+
+function combineH(grid){
+  // adds same numbers together
+  for (var i=0;i+1<grid.length;i++){
+    for (var j=0;j<grid[i].length;j++){
+      if (grid[i][j] == grid[i+1][j] ){
+        grid[i][j] += grid[i+1][j];
+        grid[i+1][j] = 0;
+        score += grid[i][j];
+      }
+    }
   }
-  // add new number
-  if (spotExists(grid))
+  return grid
+}
+
+function move(grid,direction){
+    if (direction == 'up' || direction == 'down'){
+      slideV(grid,direction);
+      combineV(grid);
+      // slideV(grid,direction);  
+    }else if (direction == 'left' || direction == 'right'){
+       slideH(grid,direction);
+       combineH(grid);
+      // slideH(grid,direction);  
+    }
     addNumber(grid);
-  else
-    console.log('No MORE SPACE');
+    return grid;
+}
+
+function keyPressed(){
+  if (keyCode === UP_ARROW){
+    move(grid,'up');
+    updateCanvas();
+  }else if(keyCode === DOWN_ARROW){
+    move(grid,'down');
+    updateCanvas();
+  }else if(keyCode === LEFT_ARROW){
+    move(grid,'left');
+    updateCanvas();
+  }else if(keyCode === RIGHT_ARROW){
+    move(grid,'right');
+    updateCanvas();
+  }
 }
 
 function drawGrid(){
@@ -134,15 +213,14 @@ function drawGrid(){
         textSize(64);
         fill(0);
         noStroke();
-        // text(i+','+j,x+cell_size/2,y+cell_size/1.5);
         text(grid[i][j],x+cell_size/2,y+cell_size/1.5);
       }
     }
   }
 }
 
-function draw(){
+function updateCanvas(){
   background(255);
   drawGrid();
-  
+  select('#score').html(score);
 }

@@ -3,7 +3,7 @@ layout: baseLayout
 ---
 <header>    
     <meta charset="utf-8"/>
-    <script src = "/assets/js_files/2048-clone/p5.js"></script>
+    <script src = "/assets/js_files/2048-clone/p5.min.js"></script>
     <script src = "/assets/js_files/2048-clone/sketch.js"></script>
 </header>
 
@@ -13,7 +13,7 @@ layout: baseLayout
     {{ page.date | date_to_string }} - {{ page.author}}
     {{content}}
     <div class='game-box' id='menu'>
-        <div class='game-box' id='score'><p>0</p></div>
+        <p class='game-box' id='score'>0</p>
         <div class='game-box' id='new-game'><p>New Game</p></div>
         <div class='game-box' id='main-board'></div>
     </div>
