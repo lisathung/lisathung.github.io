@@ -2,15 +2,15 @@
 layout: baseLayout
 title: Lisa page
 ---
-<div class="blog">
+<div class='main_body'>
 	{% for post in site.posts %}
 	<a href="{{ post.url }}">
-		<div class='blog_preview'>
-			<div class='preview_item' id="blog_image">
+		<div class='post_preview'>
+			<div class='post_image'>
 				<img src="{{ post.image }}">
 			</div>
-			<div class='preview_item' id="blog_text">
-					<h2>{{ post.title }}</h2>
+			<div class='post_text'>
+					<h5>{{ post.title }}</h5>
 					{{ post.excerpt }}
 			</div>
 		</div>
